@@ -36,6 +36,7 @@
             this.mantenimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.percepcionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresoFacturaProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -49,7 +50,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ingresoFacturaProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.impuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -87,7 +88,8 @@
             // mantenimientosToolStripMenuItem
             // 
             this.mantenimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.percepcionToolStripMenuItem});
+            this.percepcionToolStripMenuItem,
+            this.impuestosToolStripMenuItem});
             this.mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
             this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
             this.mantenimientosToolStripMenuItem.Text = "Mantenimientos";
@@ -95,7 +97,7 @@
             // percepcionToolStripMenuItem
             // 
             this.percepcionToolStripMenuItem.Name = "percepcionToolStripMenuItem";
-            this.percepcionToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.percepcionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.percepcionToolStripMenuItem.Text = "Percepcion";
             this.percepcionToolStripMenuItem.Click += new System.EventHandler(this.PercepcionToolStripMenuItem_Click);
             // 
@@ -106,6 +108,13 @@
             this.procesoToolStripMenuItem.Name = "procesoToolStripMenuItem";
             this.procesoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.procesoToolStripMenuItem.Text = "Proceso";
+            // 
+            // ingresoFacturaProveedoresToolStripMenuItem
+            // 
+            this.ingresoFacturaProveedoresToolStripMenuItem.Name = "ingresoFacturaProveedoresToolStripMenuItem";
+            this.ingresoFacturaProveedoresToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.ingresoFacturaProveedoresToolStripMenuItem.Text = "Ingreso Factura Proveedores";
+            this.ingresoFacturaProveedoresToolStripMenuItem.Click += new System.EventHandler(this.ingresoFacturaProveedoresToolStripMenuItem_Click);
             // 
             // cerrarToolStripMenuItem
             // 
@@ -215,12 +224,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // ingresoFacturaProveedoresToolStripMenuItem
+            // impuestosToolStripMenuItem
             // 
-            this.ingresoFacturaProveedoresToolStripMenuItem.Name = "ingresoFacturaProveedoresToolStripMenuItem";
-            this.ingresoFacturaProveedoresToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.ingresoFacturaProveedoresToolStripMenuItem.Text = "Ingreso Factura Proveedores";
-            this.ingresoFacturaProveedoresToolStripMenuItem.Click += new System.EventHandler(this.ingresoFacturaProveedoresToolStripMenuItem_Click);
+            this.impuestosToolStripMenuItem.Name = "impuestosToolStripMenuItem";
+            this.impuestosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.impuestosToolStripMenuItem.Text = "Impuestos";
+            this.impuestosToolStripMenuItem.Click += new System.EventHandler(this.impuestosToolStripMenuItem_Click);
             // 
             // MDISCM
             // 
@@ -269,6 +278,7 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem percepcionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresoFacturaProveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impuestosToolStripMenuItem;
     }
 }
 
