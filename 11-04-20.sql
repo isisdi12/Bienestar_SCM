@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `mydb` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `mydb`;
--- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: mydb
+-- Host: 127.0.0.1    Database: mydb
 -- ------------------------------------------------------
--- Server version	8.0.19
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `bodega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bodega` (
-  `idBodega` int NOT NULL,
+  `idBodega` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Direccion` varchar(45) DEFAULT NULL,
-  `Telefono` int DEFAULT NULL,
+  `Telefono` int(11) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
-  `StockMaximo` int DEFAULT NULL,
-  `StockMinimo` int DEFAULT NULL,
+  `StockMaximo` int(11) DEFAULT NULL,
+  `StockMinimo` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idBodega`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleado` (
-  `pkIdEmpleado` int NOT NULL AUTO_INCREMENT,
+  `pkIdEmpleado` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pkIdEmpleado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -77,9 +77,9 @@ DROP TABLE IF EXISTS `facturaproveedordetalle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `facturaproveedordetalle` (
-  `pkidDetalleFactura` int NOT NULL AUTO_INCREMENT,
-  `fkidEncabezadoFactura` int DEFAULT NULL,
-  `fkidProducto` int DEFAULT NULL,
+  `pkidDetalleFactura` int(11) NOT NULL AUTO_INCREMENT,
+  `fkidEncabezadoFactura` int(11) DEFAULT NULL,
+  `fkidProducto` int(11) DEFAULT NULL,
   `cantidad` double DEFAULT NULL,
   `precioUnitario` double DEFAULT NULL,
   `subTotal` double DEFAULT NULL,
@@ -109,9 +109,9 @@ DROP TABLE IF EXISTS `facturaproveedorencabezado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `facturaproveedorencabezado` (
-  `pkidEncabezadoFacturaP` int NOT NULL AUTO_INCREMENT,
-  `fkIdOrdenCompra` int DEFAULT NULL,
-  `fkidEmpleado` int DEFAULT NULL,
+  `pkidEncabezadoFacturaP` int(11) NOT NULL AUTO_INCREMENT,
+  `fkIdOrdenCompra` int(11) DEFAULT NULL,
+  `fkidEmpleado` int(11) DEFAULT NULL,
   `serieFactura` varchar(45) DEFAULT NULL,
   `numeroFactura` varchar(45) DEFAULT NULL,
   `fechaEntrega` date DEFAULT NULL,
@@ -143,9 +143,9 @@ DROP TABLE IF EXISTS `impuestodetallefactura`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `impuestodetallefactura` (
-  `pkidImpuesto` int NOT NULL AUTO_INCREMENT,
-  `fkidFacturaEncabezado` int DEFAULT NULL,
-  `fkIdImpuestos` int DEFAULT NULL,
+  `pkidImpuesto` int(11) NOT NULL AUTO_INCREMENT,
+  `fkidFacturaEncabezado` int(11) DEFAULT NULL,
+  `fkIdImpuestos` int(11) DEFAULT NULL,
   `total` double DEFAULT NULL,
   PRIMARY KEY (`pkidImpuesto`),
   KEY `fk_impuestoDetalleFactura_facturaProveedorEncabezado1_idx` (`fkidFacturaEncabezado`),
@@ -172,7 +172,7 @@ DROP TABLE IF EXISTS `impuestos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `impuestos` (
-  `pkidImpuesto` int NOT NULL AUTO_INCREMENT,
+  `pkidImpuesto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `estado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`pkidImpuesto`)
@@ -189,6 +189,62 @@ LOCK TABLES `impuestos` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `movimiento_detalle`
+--
+
+DROP TABLE IF EXISTS `movimiento_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `movimiento_detalle` (
+  `idMovimiento` int(11) NOT NULL,
+  `Linea` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `idTipoMovimiento` int(11) NOT NULL,
+  PRIMARY KEY (`idMovimiento`,`Linea`,`idProducto`,`idTipoMovimiento`),
+  KEY `fk_movimiento_detalle_tipos_movimiento1_idx` (`idTipoMovimiento`),
+  KEY `fk_movimiento_detalle_producto1_idx` (`idProducto`),
+  CONSTRAINT `fk_movimiento_detalle_movimiento_encabezado1` FOREIGN KEY (`idMovimiento`) REFERENCES `movimiento_encabezado` (`idMovimiento`),
+  CONSTRAINT `fk_movimiento_detalle_producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
+  CONSTRAINT `fk_movimiento_detalle_tipos_movimiento1` FOREIGN KEY (`idTipoMovimiento`) REFERENCES `tipos_movimiento` (`idTipoMovimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `movimiento_detalle`
+--
+
+LOCK TABLES `movimiento_detalle` WRITE;
+/*!40000 ALTER TABLE `movimiento_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movimiento_detalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `movimiento_encabezado`
+--
+
+DROP TABLE IF EXISTS `movimiento_encabezado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `movimiento_encabezado` (
+  `idMovimiento` int(11) NOT NULL,
+  `idEmpleado` int(11) NOT NULL,
+  `Fecha` date DEFAULT NULL,
+  PRIMARY KEY (`idMovimiento`,`idEmpleado`),
+  KEY `fk_movimiento_encabezado_empleado1_idx` (`idEmpleado`),
+  CONSTRAINT `fk_movimiento_encabezado_empleado1` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`pkIdEmpleado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `movimiento_encabezado`
+--
+
+LOCK TABLES `movimiento_encabezado` WRITE;
+/*!40000 ALTER TABLE `movimiento_encabezado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movimiento_encabezado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ordencompraencabezado`
 --
 
@@ -196,7 +252,7 @@ DROP TABLE IF EXISTS `ordencompraencabezado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ordencompraencabezado` (
-  `idEncabezadoOrden` int NOT NULL AUTO_INCREMENT,
+  `idEncabezadoOrden` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idEncabezadoOrden`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -218,15 +274,15 @@ DROP TABLE IF EXISTS `producto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `producto` (
-  `idProveedor` int NOT NULL,
-  `idProducto` int NOT NULL,
+  `idProveedor` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Precio` decimal(3,0) DEFAULT NULL,
   `Descripcion` varchar(45) DEFAULT NULL,
   `Presentacion` varchar(45) DEFAULT NULL,
-  `Costo` int DEFAULT NULL,
+  `Costo` int(11) DEFAULT NULL,
   `estado` binary(2) DEFAULT NULL,
-  `pktipo_producto` int NOT NULL,
+  `pktipo_producto` int(11) NOT NULL,
   PRIMARY KEY (`idProducto`,`idProveedor`),
   KEY `fk_Producto_Tipo Producto1_idx` (`pktipo_producto`),
   KEY `fk_Producto_Proveedor1_idx` (`idProveedor`),
@@ -252,9 +308,9 @@ DROP TABLE IF EXISTS `productoenbodega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productoenbodega` (
-  `Bodega_idBodega` int NOT NULL,
-  `Producto_idProducto` int NOT NULL,
-  `Existencias` int DEFAULT NULL,
+  `Bodega_idBodega` int(11) NOT NULL,
+  `Producto_idProducto` int(11) NOT NULL,
+  `Existencias` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Bodega_idBodega`,`Producto_idProducto`),
   KEY `fk_ProductoenBodega_Bodega1_idx` (`Bodega_idBodega`),
@@ -281,11 +337,11 @@ DROP TABLE IF EXISTS `proveedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedor` (
-  `idProveedor` int NOT NULL,
+  `idProveedor` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
-  `Nit` int DEFAULT NULL,
+  `Nit` int(11) DEFAULT NULL,
   `Direccion` varchar(45) DEFAULT NULL,
-  `Telefono` int DEFAULT NULL,
+  `Telefono` int(11) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `estado` binary(2) DEFAULT NULL,
   PRIMARY KEY (`idProveedor`)
@@ -309,7 +365,7 @@ DROP TABLE IF EXISTS `tipo producto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo producto` (
-  `pktipo_producto` int NOT NULL,
+  `pktipo_producto` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Descripcion` varchar(45) DEFAULT NULL,
   `estado` binary(2) DEFAULT NULL,
@@ -327,12 +383,29 @@ LOCK TABLES `tipo producto` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'mydb'
+-- Table structure for table `tipos_movimiento`
 --
 
+DROP TABLE IF EXISTS `tipos_movimiento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipos_movimiento` (
+  `idTipoMovimiento` int(11) NOT NULL,
+  `Nombre` varchar(45) DEFAULT NULL,
+  `Tipo` varchar(45) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`idTipoMovimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- Dumping routines for database 'mydb'
+-- Dumping data for table `tipos_movimiento`
 --
+
+LOCK TABLES `tipos_movimiento` WRITE;
+/*!40000 ALTER TABLE `tipos_movimiento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipos_movimiento` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -343,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-11 16:58:47
+-- Dump completed on 2020-04-11 19:37:52
