@@ -13,7 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Capa_Diseño_SCM.Mantenimientos
 {
     public partial class Frm_MantProducto : Form
@@ -120,14 +119,9 @@ namespace Capa_Diseño_SCM.Mantenimientos
             this.Dispose();
         }
 
-        private void Cbo_Proveedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            OdbcDataReader cita = logic.consultaproveedor();
-        }
-
         private void Btn_editar_Click(object sender, EventArgs e)
         {
-            OdbcDataReader cita = logic.Modificarproducto(Cbo_Proveedor.Text,Txt_IdP.Text,Txt_nombre.Text,Txt_Precio.Text,Txt_Descripcion.Text,Txt_Presentacion.Text,Txt_Costo.Text,Cbo_estado.Text,Cbo_TipoP.Text);
+            OdbcDataReader cita = logic.Modificarproducto(Cbo_Proveedor.Text, Txt_IdP.Text, Txt_nombre.Text, Txt_Precio.Text, Txt_Descripcion.Text, Txt_Presentacion.Text, Txt_Costo.Text, Cbo_estado.Text, Cbo_TipoP.Text);
             logic.bitacora("0", slocalIP, smacAddresses, suser, "RRHH", DateTime.Now.ToString("G"), "Modificar", this.GetType().Name);
             MessageBox.Show("Datos modificados correctamente.");
         }

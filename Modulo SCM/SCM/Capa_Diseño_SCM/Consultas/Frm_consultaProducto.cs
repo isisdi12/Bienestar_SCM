@@ -15,7 +15,7 @@ namespace Capa_Diseño_SCM.Consultas
 {
     public partial class Frm_consultaProducto : Form
     {
-         LIPSCM logic = new LIPSCM();
+        LIPSCM logic = new LIPSCM();
 
         public Frm_consultaProducto()
         {
@@ -29,7 +29,7 @@ namespace Capa_Diseño_SCM.Consultas
             {
                 while (mostrar.Read())
                 {
-                    Dgv_consultaProd.Rows.Add(mostrar.GetString(0), mostrar.GetString(1), mostrar.GetString(2), mostrar.GetString(3), mostrar.GetString(4), mostrar.GetString(5));
+                    Dgv_consultaProd.Rows.Add(mostrar.GetString(0), mostrar.GetString(1), mostrar.GetString(2), mostrar.GetString(3), mostrar.GetString(4), mostrar.GetString(5), mostrar.GetString(6), mostrar.GetString(7), mostrar.GetString(8));
                 }
             }
             catch (Exception err)
