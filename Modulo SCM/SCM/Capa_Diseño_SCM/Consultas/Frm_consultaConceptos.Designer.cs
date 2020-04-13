@@ -48,12 +48,12 @@
             // 
             // Pnl_nombreForm
             // 
-            this.Pnl_nombreForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(107)))), ((int)(((byte)(44)))));
+            this.Pnl_nombreForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(40)))), ((int)(((byte)(15)))));
             this.Pnl_nombreForm.Controls.Add(this.btn_minimizar);
             this.Pnl_nombreForm.Controls.Add(this.label1);
             this.Pnl_nombreForm.Controls.Add(this.btn_cerrar);
             this.Pnl_nombreForm.Location = new System.Drawing.Point(-2, 1);
-            this.Pnl_nombreForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Pnl_nombreForm.Margin = new System.Windows.Forms.Padding(2);
             this.Pnl_nombreForm.Name = "Pnl_nombreForm";
             this.Pnl_nombreForm.Size = new System.Drawing.Size(970, 51);
             this.Pnl_nombreForm.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.btn_minimizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimizar.Image")));
             this.btn_minimizar.Location = new System.Drawing.Point(852, 12);
-            this.btn_minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_minimizar.Name = "btn_minimizar";
             this.btn_minimizar.Size = new System.Drawing.Size(33, 31);
             this.btn_minimizar.TabIndex = 5;
@@ -89,7 +89,7 @@
             this.btn_cerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cerrar.Image")));
             this.btn_cerrar.Location = new System.Drawing.Point(925, 12);
-            this.btn_cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cerrar.Name = "btn_cerrar";
             this.btn_cerrar.Size = new System.Drawing.Size(33, 31);
             this.btn_cerrar.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.Column5,
             this.Column6});
             this.Dgv_consultaConceptos.Location = new System.Drawing.Point(9, 81);
-            this.Dgv_consultaConceptos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Dgv_consultaConceptos.Margin = new System.Windows.Forms.Padding(2);
             this.Dgv_consultaConceptos.Name = "Dgv_consultaConceptos";
             this.Dgv_consultaConceptos.RowHeadersVisible = false;
             this.Dgv_consultaConceptos.RowHeadersWidth = 51;
@@ -171,7 +171,7 @@
             this.Btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_actualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_actualizar.Location = new System.Drawing.Point(688, 201);
-            this.Btn_actualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_actualizar.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_actualizar.Name = "Btn_actualizar";
             this.Btn_actualizar.Size = new System.Drawing.Size(123, 33);
             this.Btn_actualizar.TabIndex = 72;
@@ -188,7 +188,7 @@
             this.Btn_seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_seleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_seleccionar.Location = new System.Drawing.Point(815, 201);
-            this.Btn_seleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_seleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_seleccionar.Name = "Btn_seleccionar";
             this.Btn_seleccionar.Size = new System.Drawing.Size(123, 33);
             this.Btn_seleccionar.TabIndex = 71;
@@ -206,7 +206,7 @@
             this.Controls.Add(this.Dgv_consultaConceptos);
             this.Controls.Add(this.Pnl_nombreForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_consultaConceptos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_consultaConceptos";

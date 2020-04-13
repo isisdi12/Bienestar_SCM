@@ -296,6 +296,7 @@
             this.Btn_consultar.Text = "Consultar";
             this.Btn_consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_consultar.UseVisualStyleBackColor = false;
+            this.Btn_consultar.Click += new System.EventHandler(this.Btn_consultar_Click);
             // 
             // Btn_borrar
             // 
@@ -317,6 +318,7 @@
             this.Btn_borrar.Text = "Borrar";
             this.Btn_borrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_borrar.UseVisualStyleBackColor = false;
+            this.Btn_borrar.Click += new System.EventHandler(this.Btn_borrar_Click);
             // 
             // Btn_guardar
             // 
@@ -337,6 +339,7 @@
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_guardar.UseVisualStyleBackColor = false;
+            this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Btn_editar
             // 
@@ -357,6 +360,7 @@
             this.Btn_editar.Text = "Editar";
             this.Btn_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_editar.UseVisualStyleBackColor = false;
+            this.Btn_editar.Click += new System.EventHandler(this.Btn_editar_Click);
             // 
             // Btn_ingresar
             // 
